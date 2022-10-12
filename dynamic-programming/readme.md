@@ -118,18 +118,21 @@ Constraints
 # iterative approach, slower time, less memory
 def climbStairsIterative(n: int) -> int:
     if (n<=3): return n
-    n1 = 1
-    n2 = 2
+    n1 = 3
+    n2 = 5
     i = 4
-    while i <= n:
-        temp = n1+n2
+    while i < n:
+        temp = n1
         n1 = n2
-        n2 = temp
+        n2 = temp+n2
         i += 1
-    return n1 + n2
+    return n2
 
-# recursive approach, faster time, more memory
-def climbStairsRecursion(n: int) -> int:
+# recursive approach with memotization, faster time, less memory
+def climbStairsRecursion(n: int, memo={}) -> int:
+    if n in memo.keys(): return memo[n]
     if (n<=3): return n
-    return climbStairsRecursion(n-1) + climbStairsRecursion(n-2)
+    result = climbStairsRecursion(n-1) + climbStairsRecursion(n-2)
+    memo[n] = result
+    return result
 ```

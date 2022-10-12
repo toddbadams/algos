@@ -14,10 +14,13 @@ def climbStairsIterative(n: int) -> int:
         i += 1
     return n2
 
-# recursive approach, faster time, more memory
-def climbStairsRecursion(n: int) -> int:
+# recursive approach with memotization, faster time, less memory
+def climbStairsRecursion(n: int, memo={}) -> int:
+    if n in memo.keys(): return memo[n]
     if (n<=3): return n
-    return climbStairsRecursion(n-1) + climbStairsRecursion(n-2)
+    result = climbStairsRecursion(n-1) + climbStairsRecursion(n-2)
+    memo[n] = result
+    return result
 
 assert climbStairsIterative(1) == 1
 assert climbStairsIterative(2) == 2
