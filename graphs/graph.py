@@ -3,8 +3,15 @@ from xmlrpc.client import Boolean
 
 # G = {V,E}  is the graph G with vertices V and edges E
 class graph:
+
     def __init__(self, root: vertex) -> None:
         self.root = root
+
+    def __init__(self, vertices: list, edges: list) -> None:
+        self.vertices = vertices
+        self.edges = edges
+        self.root = vertices[0]
+        self.matrix = 
 
     def __str__(self) -> str:
         return f'root is {self.root.name}'
@@ -50,4 +57,13 @@ class graph:
                 ordering.insert(0,current)
             
         return False
-    
+
+    def floyd_warshall(self):
+        distance = list(map(lambda i: list(map(lambda j: j, i)), self))
+
+        # Adding vertices individually
+        for k in range(len(self.vertices)):
+            for i in range(len(self.vertices)):
+                for j in range(len(self.vertices)):
+                    distance[i][j] = min(distance[i][j], distance[i][k] + distance[k][j])
+        return distance  

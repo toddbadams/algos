@@ -18,7 +18,7 @@ def climbStairsIterative(n: int) -> int:
 def climbStairsRecursion(n: int, memo={}) -> int:
     if n in memo.keys(): return memo[n]
     if (n<=3): return n
-    result = climbStairsRecursion(n-1) + climbStairsRecursion(n-2)
+    result = climbStairsRecursion(n-1, memo) + climbStairsRecursion(n-2, memo)
     memo[n] = result
     return result
 
@@ -37,3 +37,4 @@ assert climbStairsRecursion(4) == 5
 assert climbStairsRecursion(5) == 8
 assert climbStairsRecursion(6) == 13
 assert climbStairsRecursion(45) == 1836311903
+

@@ -136,3 +136,24 @@ def climbStairsRecursion(n: int, memo={}) -> int:
     memo[n] = result
     return result
 ```
+
+# Number of Ways to Separate Numbers
+
+You wrote down many positive integers in a string called num. However, you realized that you forgot to add commas to seperate the different numbers. You remember that the list of integers was non-decreasing and that no integer had leading zeros. Return the number of possible lists of integers that you could have written down to get the string num. Since the answer may be large, return it modulo 109 + 7.
+
+ Test cases
+| target  |  expected | numbers  |  
+|------|---|---|
+| 327  | 2 | [3,27], [327]  |
+| 094  | 0 | No numbers can have leading zeros and all numbers must be positive  | 
+| 0    | 0 | No numbers can have leading zeros and all numbers must be positive  |
+| 1543267309  | 12 | [1,5,43,267,309], [1,54,326,7309], [1,543,267309], [1,5432,67309], [15,43,267,309], [15,432,67309], [15,4326,7309], [15,43267309], [154,326,7309], [154,3267309], [1543,267309], [15432,67309]|
+
+
+Constraints:
+1 <= num.length <= 3500
+num consists of digits '0' through '9'.
+
+```python
+
+```

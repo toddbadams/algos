@@ -1,5 +1,7 @@
+from edge import edge
+
 class vertex:
-    def __init__(self, name: str, adjacent=[]) -> None:
+    def __init__(self, name: str, adjacent: list[edge]=[]) -> None:
         self.name = name
         self.adjacent = adjacent
 
@@ -11,4 +13,9 @@ class vertex:
 
     def __repr__(self) -> str:
         return self.name
+
+    def computeWeightedEdges(self) -> list:
+        result = []
+        for edge in self.adjacent:
+            result.append(edge.weight)
         
